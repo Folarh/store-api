@@ -1,5 +1,7 @@
 require("dotenv").config();
+
 //async errors
+require("express-async-errors");
 
 const express = require("express");
 const app = express();
@@ -30,6 +32,7 @@ const start = async () => {
   try {
     // coonect database
     await connectDB(process.env.MONGO_URI);
+    // listening the app
     app.listen(port, console.log("server is listening on port 8080..."));
   } catch (err) {
     console.log(err);
